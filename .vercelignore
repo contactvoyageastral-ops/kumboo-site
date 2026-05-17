@@ -1,0 +1,7 @@
+.next
+node_modules
+studio-eureca
+nextjs-eureca
+dev-server.log
+next-dev.err.log
+next-dev.out.log

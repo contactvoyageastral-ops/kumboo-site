@@ -1,0 +1,32 @@
+# dependencies
+node_modules
+
+# next
+.next
+out
+
+# vercel
+.vercel
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env
+.env
+.env*.local
+
+# os/editor
+.DS_Store
+Thumbs.db
+
+# unrelated local workspaces
+studio-eureca
+nextjs-eureca
+Skinie-Aesthetic
+casa-luna-desktop.png
+casa-luna-mobile.png
+casa-luna-*.png
+public/assets/casa-luna
