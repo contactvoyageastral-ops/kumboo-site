@@ -5,3 +5,4 @@ nextjs-eureca
 dev-server.log
 next-dev.err.log
 next-dev.out.log
+vercel.json
