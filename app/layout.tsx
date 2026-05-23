@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Kumboo | Kombucha bio premium",
   description:
-    "Kumboo cree des kombuchas bio, frais et artisanaux en bouteille de verre premium."
+    "Kumboo crée des kombuchas bio, frais et artisanaux en bouteille de verre premium."
 };
 
 export const viewport: Viewport = {

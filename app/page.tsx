@@ -19,67 +19,85 @@ const flavors = [
     sub: "Sureau",
     badge: "Doux & Floral",
     full: "Pomme Sureau",
-    description: "Une combinaison douce, florale et delicatement fruitee.",
+    description: "Une combinaison douce, florale et délicatement fruitée.",
     image: "/assets/kumboo-range/bottle-pomme-sureau-new.png",
     accent: "#b56a9d",
-    soft: "#f5e3ef"
+    soft: "#f5e3ef",
+    bottleClass: "object-center"
   },
   {
     title: "Hibiscus",
     sub: "Fruits Rouges",
     badge: "Floral & Audacieux",
     full: "Hibiscus Fruits Rouges",
-    description: "Une explosion de fruits rouges sauvages et de fleur d'hibiscus.",
+    description: "Une explosion de fruits rouges sauvages et de fleur d’hibiscus.",
     image: "/assets/kumboo-range/bottle-hibiscus-fruits-rouges-new.png",
     accent: "#cf3f57",
-    soft: "#fae2e5"
+    soft: "#fae2e5",
+    bottleClass: "object-center"
   },
   {
     title: "Mangue",
     sub: "Passion",
-    badge: "Exotique & Ensoleille",
+    badge: "Exotique & Ensoleillé",
     full: "Mangue Passion",
     description: "Une saveur tropicale, fruitée et lumineuse.",
     image: "/assets/kumboo-range/bottle-mangue-passion-new.png",
     accent: "#e96d18",
-    soft: "#ffe1bf"
+    soft: "#ffe1bf",
+    bottleClass: "object-center"
   },
   {
     title: "Citron",
     sub: "Gingembre",
-    badge: "Tonique & Epice",
+    badge: "Tonique & Épicé",
     full: "Citron Gingembre",
-    description: "La vivacite du citron presse rencontre la chaleur epicee du gingembre frais.",
+    description: "La vivacité du citron pressé rencontre la chaleur épicée du gingembre frais.",
     image: "/assets/kumboo-range/bottle-citron-gingembre-new.png",
     accent: "#efa21a",
-    soft: "#fff0bf"
+    soft: "#fff0bf",
+    bottleClass: "object-center"
   },
   {
     title: "Concombre",
     sub: "Menthe",
-    badge: "Frais & Detox",
+    badge: "Frais & Détox",
     full: "Concombre Menthe",
-    description: "Une recette fraiche, legere et desalterante.",
+    description: "Une recette fraîche, légère et désaltérante.",
     image: "/assets/kumboo-range/bottle-concombre-menthe-new.png",
     accent: "#2c8d5d",
-    soft: "#dff1dd"
+    soft: "#dff1dd",
+    bottleClass: "object-[48%_center]"
   }
 ];
 
 const benefits = [
-  [Leaf, "Bio", "Ingredients issus de cultures biologiques selectionnees."],
-  [Droplets, "Vivant", "Fermentation douce, bulles fines et fraicheur naturelle."],
-  [HeartPulse, "Peu sucre", "Equilibre net, gourmand, sans lourdeur en bouche."],
-  [Wine, "Verre premium", "Une bouteille elegante qui preserve les aromes."],
-  [ShieldCheck, "Naturel", "Sans colorants, sans compromis, juste du vrai gout."]
+  [Leaf, "Bio", "Ingrédients issus de cultures biologiques sélectionnées."],
+  [Droplets, "Vivant", "Fermentation douce, bulles fines et fraîcheur naturelle."],
+  [HeartPulse, "Peu sucré", "Équilibre net, gourmand, sans lourdeur en bouche."],
+  [Wine, "Verre premium", "Une bouteille élégante qui préserve les arômes."],
+  [ShieldCheck, "Naturel", "Sans colorants, sans compromis, juste du vrai goût."]
 ];
 
 function LogoMark({ light = false }: { light?: boolean }) {
   return (
-    <span className={`kumboo-wordmark ${light ? "kumboo-wordmark-inverted" : ""}`}>
-      Kumboó
-      <span className="kumboo-logo-leaf" aria-hidden="true" />
-    </span>
+    <motion.span
+      className={`kumboo-wordmark ${light ? "kumboo-wordmark-inverted" : ""}`}
+      whileHover="hover"
+      initial="rest"
+      animate="rest"
+    >
+      <span className="kumboo-logo-text">Kumboó</span>
+      <motion.span
+        className="kumboo-logo-leaf"
+        aria-hidden="true"
+        variants={{
+          rest: { rotate: 34, y: 0, scale: 1 },
+          hover: { rotate: 18, y: -3, scale: 1.08 }
+        }}
+        transition={{ type: "spring", stiffness: 240, damping: 16 }}
+      />
+    </motion.span>
   );
 }
 
@@ -120,12 +138,12 @@ export default function KumbooLanding() {
             <LogoMark />
           </a>
           <div className="hidden items-center gap-7 text-sm font-bold text-[#42643d] md:flex">
-            <a href="#apropos" className="transition hover:text-[#efa21a]">A propos</a>
+            <a href="#apropos" className="transition hover:text-[#efa21a]">À propos</a>
             <a href="#saveurs" className="transition hover:text-[#efa21a]">Saveurs</a>
             <a href="#fabrication" className="transition hover:text-[#efa21a]">Fabrication</a>
           </div>
           <a href="#saveurs" className="inline-flex items-center gap-2 rounded-full bg-[#efa21a] px-5 py-3 text-sm font-black text-white shadow-[0_14px_30px_rgba(239,162,26,0.28)] transition hover:-translate-y-0.5 hover:bg-[#d9900f]">
-            Gouter
+            Goûter
             <ArrowRight className="h-4 w-4" />
           </a>
         </nav>
@@ -156,15 +174,15 @@ export default function KumbooLanding() {
               Kombucha bio artisanal
             </div>
             <h1 className="font-serif text-[clamp(4rem,11vw,10rem)] font-black leading-[0.82] text-[#223d1f]">
-              L&apos;Elixir
+              L’Élixir
               <span className="block text-[#d9900f]">Vivant</span>
             </h1>
             <p className="mt-7 max-w-xl text-xl font-semibold leading-9 text-[#42643d]">
-              Des bulles fines, des plantes, des fruits et une fermentation douce pour un kombucha premium, frais et gourmand.
+              Des bulles fines, des plantes, des fruits et une&nbsp;fermentation douce pour un&nbsp;kombucha premium, frais et gourmand.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a href="#saveurs" className="inline-flex items-center justify-center gap-3 rounded-full bg-[#223d1f] px-8 py-5 text-base font-black text-[#fffaf0] transition hover:-translate-y-1 hover:bg-[#31512d]">
-                Decouvrir la gamme
+                Découvrir la gamme
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a href="#fabrication" className="inline-flex items-center justify-center rounded-full border border-[#42643d]/22 bg-white/40 px-8 py-5 text-base font-black text-[#42643d] backdrop-blur transition hover:-translate-y-1 hover:bg-white/70">
@@ -188,7 +206,7 @@ export default function KumbooLanding() {
                   animate={{ y: [0, index % 2 ? 12 : -10, 0] }}
                   transition={{ duration: 4.5 + index * 0.35, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <Image src={flavor.image} alt={`Bouteille Kumboo ${flavor.full}`} fill priority={index === 2} sizes="190px" className="object-contain drop-shadow-[0_28px_28px_rgba(33,50,25,0.22)]" />
+                  <Image src={flavor.image} alt={`Bouteille Kumboo ${flavor.full}`} fill priority={index === 2} sizes="190px" className={`object-contain ${flavor.bottleClass} drop-shadow-[0_28px_28px_rgba(33,50,25,0.22)]`} />
                 </motion.div>
               ))}
             </div>
@@ -199,14 +217,14 @@ export default function KumbooLanding() {
       <section id="apropos" className="px-4 py-24 sm:px-6">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.75fr_1.25fr]">
           <Reveal>
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-[#d9900f]">A propos</p>
+            <p className="text-sm font-black uppercase tracking-[0.24em] text-[#d9900f]">À propos</p>
             <h2 className="mt-4 font-serif text-5xl font-black leading-none text-[#223d1f] sm:text-7xl">
-              Naturel, vivant, franchement gourmand.
+              Naturel, vivant, et&nbsp;gourmand.
             </h2>
           </Reveal>
           <Reveal delay={0.08} className="rounded-[2rem] bg-[#fffaf0] p-8 shadow-[0_24px_80px_rgba(42,60,35,0.09)] sm:p-12">
             <p className="text-2xl font-semibold leading-10 text-[#42643d]">
-              Kumboo travaille le kombucha comme une boisson de degustation : infusion bio, fermentation lente, recettes lisibles et bouteilles en verre qui donnent envie de ralentir.
+              Kumboo travaille le&nbsp;kombucha comme une&nbsp;boisson de&nbsp;dégustation&nbsp;: infusion bio, fermentation lente, recettes uniques qui donnent envie de&nbsp;ralentir.
             </p>
           </Reveal>
         </div>
@@ -214,9 +232,9 @@ export default function KumbooLanding() {
 
       <section id="saveurs" className="overflow-visible px-4 py-24 sm:px-6">
         <div className="mx-auto max-w-7xl overflow-visible">
-          <Reveal className="mx-auto mb-14 max-w-3xl text-center">
+          <Reveal className="mx-auto mb-14 max-w-5xl text-center">
             <p className="text-sm font-black uppercase tracking-[0.24em] text-[#d9900f]">Nos saveurs</p>
-            <h2 className="mt-4 font-serif text-5xl font-black leading-none text-[#223d1f] sm:text-7xl">
+            <h2 className="mt-4 whitespace-nowrap font-serif text-[clamp(2.55rem,7vw,5.6rem)] font-black leading-none text-[#223d1f]">
               Cinq recettes, cinq humeurs.
             </h2>
           </Reveal>
@@ -234,7 +252,7 @@ export default function KumbooLanding() {
                   <div className="card-bubbles" aria-hidden="true"><span /><span /><span /></div>
                   <div className="relative z-10 mx-auto h-[310px] w-full">
                     <motion.div className="relative h-full w-full" whileHover={{ scale: 1.06, y: -10 }} transition={{ duration: 0.45 }}>
-                      <Image src={flavor.image} alt={`Kumboo ${flavor.full}`} fill sizes="260px" className="object-contain drop-shadow-[0_24px_26px_rgba(42,60,35,0.2)]" />
+                      <Image src={flavor.image} alt={`Kumboo ${flavor.full}`} fill sizes="260px" className={`object-contain ${flavor.bottleClass} drop-shadow-[0_24px_26px_rgba(42,60,35,0.2)]`} />
                     </motion.div>
                   </div>
                   <div className="relative z-10 mt-7">
@@ -279,10 +297,10 @@ export default function KumbooLanding() {
           <Reveal delay={0.08}>
             <p className="text-sm font-black uppercase tracking-[0.24em] text-[#d9900f]">Fabrication artisanale</p>
             <h2 className="mt-4 font-serif text-5xl font-black leading-none text-[#223d1f] sm:text-7xl">
-              Une fermentation lente, precise et joyeuse.
+              Une fermentation lente et remplie de&nbsp;bienfaits.
             </h2>
             <p className="mt-7 text-xl font-semibold leading-9 text-[#42643d]">
-              Chaque recette est pensee pour garder l&apos;eclat du fruit, la finesse de la bulle et cette petite tension acidulee qui rend le kombucha si vivant.
+              Chaque recette est pensée pour garder l’éclat du&nbsp;fruit, la&nbsp;finesse de&nbsp;la&nbsp;bulle et cette petite tension acidulée qui rend le&nbsp;kombucha si vivant.
             </p>
           </Reveal>
         </div>
@@ -290,7 +308,7 @@ export default function KumbooLanding() {
 
       <section className="px-4 pb-24 sm:px-6">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
-          {["Une vraie alternative premium aux sodas.", "Frais, fin, pas trop sucre. Exactement ce qu'on cherchait.", "Les bouteilles sont superbes et les parfums tres nets."].map((quote) => (
+          {["Une vraie alternative premium aux sodas.", "Frais, fin, pas trop sucré. Exactement ce qu’on cherchait.", "Les bouteilles sont superbes et les parfums délicieux."].map((quote) => (
             <Reveal key={quote}>
               <article className="rounded-[2rem] bg-[#fffaf0] p-8 shadow-[0_18px_55px_rgba(42,60,35,0.08)]">
                 <div className="mb-6 flex gap-1 text-[#d9900f]">{[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}</div>
@@ -305,7 +323,7 @@ export default function KumbooLanding() {
         <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
             <LogoMark light />
-            <p className="mt-3 text-sm font-semibold text-white/62">Kombucha bio premium, embouteille en verre.</p>
+            <p className="mt-3 text-sm font-semibold text-white/62">Kombucha bio premium, embouteillé en&nbsp;verre.</p>
           </div>
           <a href="#top" className="inline-flex items-center gap-2 rounded-full bg-[#efa21a] px-5 py-3 text-sm font-black text-white">
             Retour en haut

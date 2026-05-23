@@ -22,6 +22,14 @@ body {
   color: #182817;
 }
 
+h1,
+h2,
+h3,
+p,
+li {
+  text-wrap: pretty;
+}
+
 ::selection {
   background: rgba(238, 149, 24, 0.24);
   color: #182817;
@@ -37,11 +45,6 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
 }
 
-.dot-field {
-  background-image: radial-gradient(rgba(80, 104, 70, 0.18) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
 .green-dots {
   background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
   background-size: 28px 28px;
@@ -49,41 +52,86 @@ body {
 
 .kumboo-wordmark {
   position: relative;
-  display: inline-block;
-  padding-right: 18px;
-  font-size: 1.18rem;
-  font-weight: 900;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  padding-right: 1.55rem;
   color: #182817;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .kumboo-wordmark-inverted {
   color: #fffaf0;
+  font-size: 1.2rem;
+}
+
+.kumboo-logo-text {
+  position: relative;
+  display: inline-block;
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+.kumboo-wordmark-inverted .kumboo-logo-text {
   font-size: 1.65rem;
+}
+
+.kumboo-logo-text::after {
+  content: "";
+  position: absolute;
+  left: 0.04rem;
+  right: 0.02rem;
+  bottom: -0.28rem;
+  height: 1px;
+  border-radius: 9999px;
+  background: currentColor;
+  opacity: 0.28;
+  transform: scaleX(0.34);
+  transform-origin: left;
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), opacity 360ms ease;
+}
+
+.kumboo-wordmark:hover .kumboo-logo-text::after {
+  opacity: 0.58;
+  transform: scaleX(1);
 }
 
 .kumboo-logo-leaf {
   position: absolute;
-  right: 0;
-  top: -10px;
-  height: 17px;
-  width: 10px;
+  right: 0.12rem;
+  top: -0.95rem;
+  height: 1.28rem;
+  width: 0.74rem;
   border-radius: 100% 0 100% 0;
-  background: linear-gradient(145deg, #8abb62, #426f36);
-  transform: rotate(35deg);
-  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.09);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.72) 0 10%, transparent 11%),
+    linear-gradient(145deg, #a7c978, #3f7137 72%);
+  box-shadow: 0 5px 14px rgba(55, 92, 42, 0.18), inset -1px -1px 0 rgba(17, 46, 14, 0.14);
+}
+
+.kumboo-logo-leaf::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.13rem;
+  height: 0.95rem;
+  width: 1px;
+  border-radius: 9999px;
+  background: rgba(255, 250, 240, 0.72);
+  transform: translateX(-50%) rotate(-13deg);
 }
 
 .kumboo-logo-leaf::after {
   content: "";
   position: absolute;
-  left: 4px;
-  top: 2px;
-  height: 12px;
-  width: 1px;
+  left: 0.26rem;
+  top: 0.5rem;
+  height: 1px;
+  width: 0.3rem;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.48);
-  transform: rotate(-16deg);
+  background: rgba(255, 250, 240, 0.56);
+  transform: rotate(-22deg);
 }
 
 .bubble-field {
