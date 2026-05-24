@@ -52,7 +52,7 @@ const flavors = [
     sub: "Gingembre",
     badge: "Tonique & Épicé",
     full: "Citron Gingembre",
-    description: "La vivacité du citron pressé rencontre la chaleur épicée du gingembre frais.",
+    description: "Citron pressé, gingembre frais : vif, chaud et épicé.",
     image: "/assets/kumboo-range/bottle-citron-gingembre-new.png",
     accent: "#efa21a",
     soft: "#fff0bf",
