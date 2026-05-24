@@ -67,7 +67,8 @@ const flavors = [
     image: "/assets/kumboo-range/bottle-concombre-menthe-new.png",
     accent: "#2c8d5d",
     soft: "#dff1dd",
-    bottleClass: "object-[48%_center]"
+    bottleClass: "object-[48%_center]",
+    titleClass: "text-[2.15rem] sm:text-[2.35rem] xl:text-[2rem] 2xl:text-[2.2rem]"
   }
 ];
 
@@ -259,7 +260,7 @@ export default function KumbooLanding() {
                     <span className="inline-flex rounded-full px-5 py-2 text-sm font-black text-white" style={{ backgroundColor: flavor.accent }}>
                       {flavor.badge}
                     </span>
-                    <h3 className="mt-5 font-serif text-4xl font-black leading-none text-[#42643d]">{flavor.title}</h3>
+                    <h3 className={`mx-auto mt-5 max-w-full text-center font-serif font-black leading-none text-[#42643d] ${flavor.titleClass ?? "text-4xl"}`}>{flavor.title}</h3>
                     <p className="mt-2 font-serif text-2xl italic text-[#6e9462]">{flavor.sub}</p>
                     <p className="mx-auto mt-6 max-w-[16rem] translate-y-3 text-base font-semibold leading-7 text-[#42643d] opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                       {flavor.description}
